@@ -8,7 +8,6 @@ public class Main {
 	
 	public final static String character = " ";
 
-
 	public static void main(String[] args) throws IOException {
 		
 		String data = "";
@@ -19,7 +18,6 @@ public class Main {
 		String txtMount = br.readLine();
 		int mount = Integer.parseInt(txtMount);
 		
-		
 		double[] inOrder = null;
 		String[] numbers = null;
 		
@@ -27,28 +25,23 @@ public class Main {
 			
 			numbers = br.readLine().split(character);
 			inOrder = new double[numbers.length];
-			inOrder = parseInt(inOrder, mount, numbers);
+			inOrder = parseDouble(inOrder, numbers);
 			data += lowerToHigher(inOrder) + "\n";
 			
 		}
-		
 		bw.write(data);
-		
 		bw.close();
 		br.close();
 	}
 	
 	
-	
-	
-	public static double[] parseInt(double[] inOrder, int mount, String[] numbers) {
+	public static double[] parseDouble(double[] inOrder, String[] numbers) {
 		
 		if(inOrder != null && numbers != null) {
 			for(int j = 0; j < inOrder.length; j ++) {
 				inOrder[j] = Double.parseDouble(numbers[j]);
 			}
 		}
-		
 		return inOrder;
 	}
 	
@@ -74,23 +67,14 @@ public class Main {
 						changesInIf ++;
 					}
 				}
-			
 			}
-			
 			average = changesInIf / changesInFor;
 			average = Math.round(average*100.0)/100.0;
 		}
-		
 		data = average + "-";
 		for(int i = 0; i < inOrder.length; i++) {
 			data += inOrder[i] + " ";
 		}
 		return data;
 	}
-	
-	
-	
-	
-	
-	
 }
